@@ -16,12 +16,17 @@
             bindings = <&kp ENTER>;
             key-positions = <19 20 21>;
         };
+
+        function_layer {
+            bindings = <&mo 3>;
+            key-positions = <37 40>;
+        };
     };
 
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
+        dvorak_layer {
             // -----------------------------------------------------------------------------------------
             // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
             // | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
@@ -37,7 +42,7 @@
             >;
         };
 
-        lower_layer {
+        BT_arrow_num_layer {
             // -----------------------------------------------------------------------------------------
             // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
             // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
@@ -48,12 +53,12 @@
             bindings = <
 &bt BT_CLR  &bt BT_SEL 0    &bt BT_SEL 1  &bt BT_SEL 2    &bt BT_SEL 3  &bt BT_SEL 4    &trans     &kp N7  &kp N8  &kp N9  &trans  &trans
 &kp TAB     &kp LEFT_ARROW  &kp UP_ARROW  &kp DOWN_ARROW  &kp RIGHT     &trans          &kp N0     &kp N4  &kp N5  &kp N6  &trans  &trans
-&trans      &trans          &trans        &trans          &trans        &trans          &trans     &kp N1  &kp N2  &kp N3  &trans  &trans
+&kp LSHFT   &trans          &trans        &trans          &trans        &trans          &trans     &kp N1  &kp N2  &kp N3  &trans  &kp RSHFT
                                           &trans          &trans        &kp DEL         &kp SPACE  &trans  &trans
             >;
         };
 
-        raise_layer {
+        symbols_layer {
             // -----------------------------------------------------------------------------------------
             // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
             // | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
@@ -62,10 +67,19 @@
 
             display-name = "Raise";
             bindings = <
-&kp TAB    &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT    &kp CARET  &kp AMPS   &kp KP_MULTIPLY  &kp LPAR  &kp RPAR  &kp BSPC
-&kp LCTRL  &trans    &trans  &trans    &trans    &trans       &kp MINUS  &kp EQUAL  &kp LBKT         &kp RBKT  &kp BSLH  &kp GRAVE
-&kp LSHFT  &trans    &trans  &trans    &trans    &trans       &kp UNDER  &kp PLUS   &kp LBRC         &kp RBRC  &kp PIPE  &kp TILDE
-                             &kp LGUI  &trans    &kp SPACE    &kp RET    &trans     &kp RALT
+&kp GRAVE  &kp TILDE             &kp EXCLAMATION  &kp AT_SIGN       &kp HASH        &kp DOLLAR              &kp PERCENT            &kp CARET        &kp AMPERSAND      &kp ASTERISK      &kp SLASH     &trans
+&trans     &kp NON_US_BACKSLASH  &kp LESS_THAN    &kp LEFT_BRACKET  &kp LEFT_BRACE  &kp LEFT_PARENTHESIS    &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACE  &kp RIGHT_BRACKET  &kp GREATER_THAN  &kp QUESTION  &trans
+&kp LSHFT  &trans                &kp EQUAL        &kp PLUS          &kp PIPE        &trans                  &trans                 &kp MINUS        &kp UNDERSCORE     &trans            &trans        &trans
+                                                  &trans            &trans          &kp DEL                 &kp SPACE              &trans           &trans
+            >;
+        };
+
+        function_layer {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans   &trans   &trans
+&kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6    &kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans   &trans   &trans
+                        &trans  &trans  &trans    &trans  &trans  &trans
             >;
         };
     };
